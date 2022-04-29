@@ -1,0 +1,34 @@
+---
+
+- hosts: all
+  tasks:
+
+  - name: "Setup the required folders."
+    script: "../scripts/conf_repos.sh setup_folders"
+
+  - name: "Cloning repositories"
+    git: "git@{{ item.host }}:{{ item.user }}/{{ item.repo }}"
+    dest: "~/repositories/config/{{ item.repo }}"
+    force: yes
+    loop:
+    - host: "github.com"
+      user: "juselara1"
+      repo: "zathura"
+    - host: "github.com"
+      user: "juselara1"
+      repo: "kitty"
+    - host: "github.com"
+      user: "juselara1"
+      repo: "nvim"
+    - host: "github.com"
+      user: "juselara1"
+      repo: "shell_scripts"
+    - host: "github.com"
+      user: "juselara1"
+      repo: "qtile"
+    - host: "github.com"
+      user: "juselara1"
+      repo: "starship"
+    - host: "github.com"
+      user: "juselara1"
+      repo: "ipython"

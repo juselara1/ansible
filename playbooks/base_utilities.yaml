@@ -1,0 +1,29 @@
+---
+
+- hosts: arch
+  become: true
+  tasks:
+
+  - name: "Update and upgrade kernel."
+    pacman:
+      update_cache: yes
+      upgrade: yes
+
+  - name: "Installing base linux utilities."
+    pacman:
+      name: ["tmux", "git", "pass", "fzf", "jq", "bat", "rsync"]
+      state: latest
+
+- hosts: debian
+  become: true
+  tasks:
+
+  - name: "Update and upgrade kernel."
+    apt:
+      update_cache: yes
+      upgrade: yes
+
+  - name: "Installing base linux utilities."
+    apt:
+      name: ["tmux", "git", "pass", "fzf", "jq", "bat", "rsync"]
+      state: latest

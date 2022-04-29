@@ -1,0 +1,29 @@
+---
+
+- hosts: all
+  tasks:
+
+  - name: "Setup the required folders."
+    script: "../scripts/ssh_utils.sh setup_folders"
+
+  - name: "Copy ssh config"
+    copy:
+      src: "../confs/ssh_config"
+      dest: "~/.ssh/config"
+      remote_src: no
+
+  - name: "Generate ssh keys"
+    script: "../scripts/ssh_utils.sh generate_keys {{ item.email }} {{ item.host }}"
+    register: out
+    loop: 
+    - host: "github-juselara1"
+      email: "julara@unal.edu.co"
+    - host:  "gitlab-juselara"
+      email: "julara@unal.edu.co"
+    - host: "gcp-juselara"
+      email: "julara@unal.edu.co"
+    - host: "oracle-juselara"
+      email: "julara@unal.edu.co"
+    - host: "zenaio-juselara"
+      email: "julara@unal.edu.co"
+  - debug: msg="{{ out }}"
