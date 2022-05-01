@@ -5,6 +5,8 @@
 
   - name: "Setup the required folders."
     script: "../scripts/ssh_utils.sh setup_folders"
+    args:
+      executable: "/bin/bash"
 
   - name: "Copy ssh config"
     copy:
@@ -14,6 +16,8 @@
 
   - name: "Generate ssh keys"
     script: "../scripts/ssh_utils.sh generate_keys {{ item.email }} {{ item.host }}"
+    args:
+      executable: "/bin/bash"
     register: out
     loop: 
     - host: "github-juselara1"

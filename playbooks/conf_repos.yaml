@@ -32,3 +32,10 @@
     - host: "github.com"
       user: "juselara1"
       repo: "ipython"
+
+  - name: "Downloading fzf"
+    git: "https://github.com/junegunn/fzf.git"
+    dest: "~/.fzf"
+
+  - name: Installing fzf
+    command: "~/.fzf/install"
