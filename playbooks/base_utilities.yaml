@@ -11,7 +11,7 @@
 
   - name: "Installing base linux utilities."
     pacman:
-      name: ["tmux", "git", "pass", "jq", "rsync", "htop", "base-devel"]
+      name: ["tmux", "git", "pass", "jq", "rsync", "htop", "base-devel", "fzf", "bat"]
       state: latest
 
 - hosts: debian
@@ -25,5 +25,5 @@
 
   - name: "Installing base linux utilities."
     apt:
-      name: ["tmux", "git", "pass", "jq", "rsync", "htop", "build-essential"]
+      name: ["tmux", "git", "pass", "jq", "rsync", "htop", "build-essential", "fzf", "bat"]
       state: latest

@@ -7,7 +7,6 @@ all:
       children:
         desktop:
           hosts:
-            ideapad100:
             rpi:
         remote:
           hosts:

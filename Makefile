@@ -14,3 +14,5 @@ ssh_config:
 
 conf_repos:
 	ansible-playbook playbooks/conf_repos.yaml -i inventory.yaml 
+nvim:
+	ansible-playbook playbooks/nvim.yaml -i inventory.yaml --ask-become-pass
