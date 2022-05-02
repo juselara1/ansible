@@ -1,8 +1,10 @@
 all:
   children:
     arch:
-      hosts:
-        zenaio:
+      children:
+        desktopgpu:
+          hosts:
+            zenaio:
     debian:
       children:
         desktop:

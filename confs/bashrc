@@ -45,7 +45,11 @@ set -o vi
 # pyenv
 if [[ -d "$HOME/.pyenv" ]]; then
     export PATH="$PATH:$HOME/.pyenv/bin/"
-    eval "$(pyenv init --path)"
+    if cat "/etc/os-release" | grep -q "Debian"; then
+        eval "$(pyenv virtualenv-init -)"
+    else
+        eval "$(pyenv init --path)"
+    fi
 fi
 
 # poetry

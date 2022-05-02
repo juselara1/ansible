@@ -1,0 +1,31 @@
+---
+
+- hosts: "arch"
+  tasks:
+
+  - name: "Setting up pyenv"
+    script: "../scripts/python_utils.sh setup_pyenv {{ pyversion }}"
+    args:
+      executable: "/bin/bash"
+    vars:
+      pyversion: "3.10.0"
+
+  - name: "Installing poetry"
+    script: "../scripts/python_utils.sh install_poetry"
+    args:
+      executable: "/bin/bash"
+
+- hosts: "debian"
+  tasks:
+
+  - name: "Installing pyenv"
+    script: "../scripts/python_utils.sh install_pyenv {{ pyversion }}"
+    args:
+      executable: "/bin/bash"
+    vars:
+      pyversion: "3.10.0"
+
+  - name: "Installing poetry"
+    script: "../scripts/python_utils.sh install_poetry"
+    args:
+      executable: "/bin/bash"

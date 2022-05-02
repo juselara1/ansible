@@ -16,3 +16,13 @@ conf_repos:
 	ansible-playbook playbooks/conf_repos.yaml -i inventory.yaml 
 nvim:
 	ansible-playbook playbooks/nvim.yaml -i inventory.yaml --ask-become-pass
+
+python:
+	ansible-playbook playbooks/python_deps.yaml -i inventory.yaml --ask-become-pass
+	ansible-playbook playbooks/python_utilities.yaml -i inventory.yaml
+
+nerd_fonts:
+	ansible-playbook playbooks/nerd_font.yaml -i inventory.yaml 
+
+graphics:
+	ansible-playbook playbooks/graphics_utils.yaml -i inventory.yaml --ask-become-pass

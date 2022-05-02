@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+  tasks:
+
+  - name: "Install nerdfonts"
+    script: "../scripts/installation.sh install_nerdfonts"
+    args:
+      executable: "/bin/bash"
