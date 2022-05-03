@@ -1,0 +1,32 @@
+---
+
+- hosts: "arch:desktopgpu"
+  become: true
+  tasks:
+
+  - name: "Installing gpu drivers."
+    pacman:
+      name: ["nvidia"]
+      state: latest
+
+- hosts: "arch"
+  become: true
+  tasks:
+
+  - name: "Installing x-server dependences"
+    pacman:
+      name: [
+        "xorg", "xorg-xinit", "xclip", "xorg-fonts", "pango",
+        "gdk-pixbuf2", "noto-fonts-emoji"
+      ]
+      state: latest
+
+- hosts: "debian:desktop"
+  become: true
+  tasks:
+  - name: "Installing x-server dependences"
+    apt:
+      name: [
+        "xorg", "xinit", "xclip", "libpangocairo-1.0-0"
+      ]
+      install_recommends: no

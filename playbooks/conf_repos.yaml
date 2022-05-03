@@ -5,30 +5,21 @@
 
   - name: "Setup the required folders."
     script: "../scripts/conf_repos.sh setup_folders"
+    args:
+      executable: "/bin/bash"
 
   - name: "Cloning repositories"
-    git: "git@{{ item.host }}:{{ item.user }}/{{ item.repo }}"
-    dest: "~/repositories/config/{{ item.repo }}"
-    force: yes
-    loop:
-    - host: "github.com"
-      user: "juselara1"
-      repo: "zathura"
-    - host: "github.com"
-      user: "juselara1"
-      repo: "kitty"
-    - host: "github.com"
-      user: "juselara1"
-      repo: "nvim"
-    - host: "github.com"
-      user: "juselara1"
-      repo: "shell_scripts"
-    - host: "github.com"
-      user: "juselara1"
-      repo: "qtile"
-    - host: "github.com"
-      user: "juselara1"
-      repo: "starship"
-    - host: "github.com"
-      user: "juselara1"
-      repo: "ipython"
+    git:
+      repo: "git@github.com:juselara1/{{ item }}"
+      dest: "~/.config/{{ item }}"
+      force: yes
+    loop: [
+      "zathura", "kitty", "nvim", "shell_scripts", "qtile",
+      "starship", "ipython", "rofi", "qutebrowser"
+      ]
+
+  - name: "Copying config files"
+    copy:
+      src: "../confs/{{ item }}"
+      dest: "~/.{{ item }}"
+    loop: ["bashrc", "tmux.conf", "inputrc", "xinitrc"]

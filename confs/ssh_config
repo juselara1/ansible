@@ -8,17 +8,22 @@ Host gitlab.com
     User git
     IdentityFile ~/.ssh/gitlab-juselara
 
-Host oracle
-    HostName xxx.xxx.xxx.xxx
-    User juselara
-    IdentityFile ~/.ssh/oracle-juselara
-
 Host gcp
-    HostName xxx.xxx.xxx.xxx
+    HostName x.x.x.x
     User juselara
     IdentityFile ~/.ssh/gcp-juselara
 
 Host zenaio
-    HostName xxx.xxx.xxx.xxx
+    HostName x.x.x.x
     User juselara
     IdentityFile ~/.ssh/zenaio-juselara
+
+Host ideapad100
+    HostName x.x.x.x
+    User juselara
+    IdentityFile ~/.ssh/ideapad100-juselara
+
+Host rpi
+    HostName x.x.x.x
+    User juselara
+    IdentityFile ~/.ssh/rpi-juselara

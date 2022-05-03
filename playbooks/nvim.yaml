@@ -1,0 +1,44 @@
+---
+
+- hosts: "arch"
+  become: true
+  tasks:
+  - name: "Installing dependences"
+    pacman:
+      name: ["cmake", "unzip", "ninja", "tree-sitter", "curl", "nodejs", "npm"]
+
+- hosts: "debian:remote"
+  become: true
+  tasks:
+  - name: "Installing dependences"
+    apt:
+      name: [
+        "cmake", "automake", "libtool-bin", "gettext", "nodejs", "npm"
+      ]
+
+- hosts: "debian:remote"
+  become: true
+  tasks:
+  - name: "Installing dependences"
+    apt:
+      name: [
+        "ninja-build", "gettext", "libtool", "libtool-bin",
+        "autoconf", "automake", "cmake", "g++", "pkg-config",
+        "unzip", "curl", "doxygen", "nodejs", "npm"
+      ]
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: "Cloning neovim"
+    git:
+      repo: "https://github.com/neovim/neovim.git"
+      version: "v0.7.0"
+      dest: "/tmp/neovim"
+      force: yes
+
+  - name: "Install neovim"
+    script: "../scripts/installation.sh install_nvim"
+    args:
+      executable: "/bin/bash"

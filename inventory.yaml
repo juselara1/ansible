@@ -1,0 +1,15 @@
+all:
+  children:
+    arch:
+      children:
+        desktopgpu:
+          hosts:
+            zenaio:
+    debian:
+      children:
+        desktop:
+          hosts:
+            rpi:
+        remote:
+          hosts:
+            gcp:
