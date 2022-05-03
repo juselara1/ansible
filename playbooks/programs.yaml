@@ -35,3 +35,12 @@
         "alsa-utils"
       ]
       state: latest
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: "Installing starship"
+    script: "../scripts/installation.sh install_starship"
+    args:
+      executable: "/bin/bash"

@@ -22,5 +22,11 @@ install_qtile() {
     popd
 }
 
+install_starship() {
+    curl -sS https://starship.rs/install.sh > /tmp/starship.sh
+    chmod +x /tmp/starship.sh
+    /tmp/starship.sh -y
+}
+
 $*
 exit 0
