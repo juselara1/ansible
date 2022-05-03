@@ -26,3 +26,7 @@ nerd_fonts:
 
 graphics:
 	ansible-playbook playbooks/graphics_utils.yaml -i inventory.yaml --ask-become-pass
+	ansible-playbook playbooks/qtile.yaml -i inventory.yaml
+
+programs:
+	ansible-playbook playbooks/programs.yaml -i inventory.yaml --ask-become-pass

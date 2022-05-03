@@ -14,5 +14,13 @@ install_nerdfonts() {
     fc-cache -f -v
 }
 
+install_qtile() {
+    pushd "$HOME/.config/qtile/"
+    export PATH="$PATH:$HOME/.local/bin/"
+    poetry config virtualenvs.in-project true 
+    poetry install
+    popd
+}
+
 $*
 exit 0
