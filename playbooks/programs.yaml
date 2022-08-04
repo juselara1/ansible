@@ -12,7 +12,7 @@
   - name: "Installing general-purpose programs."
     pacman:
       name: [
-        "kitty", "zathura", "zathura-pdf-mupdf", "zathura-djvu",
+        "zathura", "zathura-pdf-mupdf", "zathura-djvu",
         "zathura-ps", "rofi", "flameshot", "qutebrowser",
         "sxiv", "inkscape", "alsa-utils"
       ]
@@ -30,7 +30,7 @@
   - name: "Installing general-purpose programs."
     apt:
       name: [
-        "kitty", "zathura", "zathura-djvu", "zathura-ps",
+        "zathura", "zathura-djvu", "zathura-ps",
         "rofi", "flameshot", "qutebrowser", "sxiv", "inkscape",
         "alsa-utils"
       ]
@@ -42,5 +42,17 @@
 
   - name: "Installing starship"
     script: "../scripts/installation.sh install_starship"
+    args:
+      executable: "/bin/bash"
+
+  - name: "Downloading just terminal"
+    git:
+      repo: "https://github.com/juselara1/just.git"
+      version: "main"
+      dest: "/tmp/just"
+      force: yes
+
+  - name: "Install just"
+    script: "../scripts/installation.sh install_just"
     args:
       executable: "/bin/bash"
