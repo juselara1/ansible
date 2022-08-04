@@ -27,6 +27,6 @@
   - name: "Installing x-server dependences"
     apt:
       name: [
-        "xorg", "xinit", "xclip", "libpangocairo-1.0-0", "awesome"
+        "xorg", "xinit", "xclip", "libpangocairo-1.0-0", "awesome", "libxft-dev"
       ]
       install_recommends: no

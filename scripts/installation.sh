@@ -6,6 +6,12 @@ install_nvim() {
     popd
 }
 
+install_just() {
+    pushd "/tmp/just"
+    make clean install
+    popd
+}
+
 install_nerdfonts() {
     wget "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/UbuntuMono/Regular/complete/Ubuntu%20Mono%20Nerd%20Font%20Complete%20Mono.ttf" -O "UbuntuMono.ttf"
 
