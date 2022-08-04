@@ -1,2 +1,2 @@
 flameshot &
-~/.config/qtile/.venv/bin/qtile start
+exec awesome

@@ -13,7 +13,8 @@
     pacman:
       name: [
         "tmux", "git", "pass", "jq", "rsync", "htop",
-        "base-devel", "fzf", "bat", "fontconfig", "wget"
+        "base-devel", "fzf", "bat", "fontconfig", "wget",
+        "zoxide"
       ]
       state: latest
 
@@ -30,6 +31,6 @@
     apt:
       name: [
         "tmux", "git", "pass", "jq", "rsync", "htop",
-        "build-essential", "fzf", "bat", "wget"
+        "build-essential", "fzf", "bat", "wget", "zoxide"
       ]
       state: latest
