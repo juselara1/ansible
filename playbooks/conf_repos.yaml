@@ -15,7 +15,7 @@
       force: yes
       version: "main"
     loop: [
-      "zathura", "kitty", "nvim", "shell_scripts", "starship",
+      "zathura", "nvim", "shell_scripts", "starship",
       "ipython", "rofi", "qutebrowser", "awesome"
       ]
 
