@@ -5,11 +5,9 @@ all:
         desktopgpu:
           hosts:
             zenaio:
+            legion:
     debian:
       children:
         desktop:
           hosts:
             rpi:
-        remote:
-          hosts:
-            gcp:
