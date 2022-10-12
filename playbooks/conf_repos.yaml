@@ -16,7 +16,8 @@
       version: "main"
     loop: [
       "zathura", "nvim", "shell_scripts", "starship",
-      "ipython", "rofi", "qutebrowser", "awesome"
+      "ipython", "rofi", "qutebrowser", "awesome", "polybar",
+      "picom"
       ]
 
   - name: "Copying config files"
