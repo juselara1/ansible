@@ -6,6 +6,10 @@ install_nvim() {
     popd
 }
 
+install_rustup() {
+    curl https://sh.rustup.rs -sSf | sh -s -- -y
+}
+
 install_just() {
     pushd "/tmp/just"
     make clean install
@@ -32,6 +36,14 @@ install_starship() {
     curl -sS https://starship.rs/install.sh > /tmp/starship.sh
     chmod +x /tmp/starship.sh
     /tmp/starship.sh -y
+}
+
+install_alacritty() {
+    pushd "/tmp/alacritty"
+    source "/root/.cargo/env"
+    cargo build --release
+    mv 'target/release/alacritty' '/usr/local/bin/alacritty'
+    popd
 }
 
 $*
