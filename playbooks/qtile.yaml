@@ -1,8 +1,0 @@
----
-
-- hosts: "all"
-  tasks:
-  - name: "Installing juselara_qtile"
-    script: "../scripts/installation.sh install_qtile"
-    args:
-      executable: "/bin/bash"

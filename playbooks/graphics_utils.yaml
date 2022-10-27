@@ -17,7 +17,8 @@
     pacman:
       name: [
         "xorg", "xorg-xinit", "xclip", "xorg-fonts", "pango",
-        "gdk-pixbuf2", "noto-fonts-emoji"
+        "gdk-pixbuf2", "noto-fonts-emoji", "awesome", "polybar",
+        "picom", "feh"
       ]
       state: latest
 
@@ -27,6 +28,7 @@
   - name: "Installing x-server dependences"
     apt:
       name: [
-        "xorg", "xinit", "xclip", "libpangocairo-1.0-0"
+        "xorg", "xinit", "xclip", "libpangocairo-1.0-0", "awesome",
+        "libxft-dev", "polybar", "compton", "feh", "fonts-noto-color-emoji"
       ]
       install_recommends: no

@@ -13,9 +13,11 @@
       repo: "git@github.com:juselara1/{{ item }}"
       dest: "~/.config/{{ item }}"
       force: yes
+      version: "main"
     loop: [
-      "zathura", "kitty", "nvim", "shell_scripts", "qtile",
-      "starship", "ipython", "rofi", "qutebrowser"
+      "zathura", "nvim", "shell_scripts", "starship",
+      "ipython", "rofi", "qutebrowser", "awesome", "polybar",
+      "picom", "alacritty"
       ]
 
   - name: "Copying config files"

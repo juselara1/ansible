@@ -12,11 +12,17 @@
   - name: "Installing general-purpose programs."
     pacman:
       name: [
-        "kitty", "zathura", "zathura-pdf-mupdf", "zathura-djvu",
+        "zathura", "zathura-pdf-mupdf", "zathura-djvu",
         "zathura-ps", "rofi", "flameshot", "qutebrowser",
         "sxiv", "inkscape", "alsa-utils"
       ]
       state: latest
+
+  - name: "Installing alacritty dependences"
+    pacman:
+      name: [
+        "cmake", "freetype2", "fontconfig", "pkg-config", "make", "libxcb", "libxkbcommon" 
+    ]
 
 - hosts: debian
   become: true
@@ -30,8 +36,41 @@
   - name: "Installing general-purpose programs."
     apt:
       name: [
-        "kitty", "zathura", "zathura-djvu", "zathura-ps",
+        "zathura", "zathura-djvu", "zathura-ps",
         "rofi", "flameshot", "qutebrowser", "sxiv", "inkscape",
         "alsa-utils"
       ]
       state: latest
+
+  - name: "Installing alacritty dependences"
+    apt:
+      name: [
+        "cmake", "pkg-config", "libfreetype6-dev", "libfontconfig1-dev",
+        "libxcb-xfixes0-dev", "libxkbcommon-dev"
+    ]
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: "Installing starship"
+    script: "../scripts/installation.sh install_starship"
+    args:
+      executable: "/bin/bash"
+
+  - name: "Downloading alacritty terminal"
+    git:
+      repo: "https://github.com/alacritty/alacritty"
+      version: "master"
+      dest: "/tmp/alacritty"
+      force: yes
+
+  - name: "Installing rustup"
+    script: "../scripts/installation.sh install_rustup"
+    args:
+      executable: "/bin/bash"
+
+  - name: "Install alacritty"
+    script: "../scripts/installation.sh install_alacritty"
+    args:
+      executable: "/bin/bash"
