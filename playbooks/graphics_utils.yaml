@@ -29,6 +29,6 @@
     apt:
       name: [
         "xorg", "xinit", "xclip", "libpangocairo-1.0-0", "awesome",
-        "libxft-dev", "polybar", "compton", "feh"
+        "libxft-dev", "polybar", "compton", "feh", "fonts-noto-color-emoji"
       ]
       install_recommends: no

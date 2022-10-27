@@ -18,6 +18,12 @@
       ]
       state: latest
 
+  - name: "Installing alacritty dependences"
+    pacman:
+      name: [
+        "cmake", "freetype2", "fontconfig", "pkg-config", "make", "libxcb", "libxkbcommon" 
+    ]
+
 - hosts: debian
   become: true
   tasks:
@@ -36,6 +42,13 @@
       ]
       state: latest
 
+  - name: "Installing alacritty dependences"
+    apt:
+      name: [
+        "cmake", "pkg-config", "libfreetype6-dev", "libfontconfig1-dev",
+        "libxcb-xfixes0-dev", "libxkbcommon-dev"
+    ]
+
 - hosts: all
   become: true
   tasks:
@@ -45,14 +58,19 @@
     args:
       executable: "/bin/bash"
 
-  - name: "Downloading just terminal"
+  - name: "Downloading alacritty terminal"
     git:
-      repo: "https://github.com/juselara1/just.git"
-      version: "main"
-      dest: "/tmp/just"
+      repo: "https://github.com/alacritty/alacritty"
+      version: "master"
+      dest: "/tmp/alacritty"
       force: yes
 
-  - name: "Install just"
-    script: "../scripts/installation.sh install_just"
+  - name: "Installing rustup"
+    script: "../scripts/installation.sh install_rustup"
+    args:
+      executable: "/bin/bash"
+
+  - name: "Install alacritty"
+    script: "../scripts/installation.sh install_alacritty"
     args:
       executable: "/bin/bash"
