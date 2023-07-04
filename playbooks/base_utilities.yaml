@@ -30,7 +30,7 @@
   - name: "Installing base linux utilities."
     apt:
       name: [
-        "tmux", "git", "pass", "jq", "rsync", "htop",
-        "build-essential", "fzf", "bat", "wget", "zoxide"
+        "tmux", "git", "pass", "jq", "rsync", "btop",
+        "build-essential", "fzf", "wget", "zoxide"
       ]
       state: latest

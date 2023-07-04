@@ -10,11 +10,6 @@
     vars:
       pyversion: "3.10.0"
 
-  - name: "Installing poetry"
-    script: "../scripts/python_utils.sh install_poetry"
-    args:
-      executable: "/bin/bash"
-
 - hosts: "debian"
   tasks:
 
@@ -23,9 +18,4 @@
     args:
       executable: "/bin/bash"
     vars:
-      pyversion: "3.10.0"
-
-  - name: "Installing poetry"
-    script: "../scripts/python_utils.sh install_poetry"
-    args:
-      executable: "/bin/bash"
+      pyversion: "3.11.1"

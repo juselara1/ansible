@@ -4,10 +4,13 @@ all:
       children:
         desktopgpu:
           hosts:
-            zenaio:
             legion:
     debian:
       children:
-        desktop:
+        minimal:
           hosts:
             rpi:
+            ideapad100:
+        desktop:
+          hosts:
+            zenaio:

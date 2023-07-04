@@ -5,7 +5,7 @@
   tasks:
   - name: "Installing dependences"
     pacman:
-      name: ["cmake", "unzip", "ninja", "tree-sitter", "curl", "nodejs", "npm"]
+      name: ["cmake", "unzip", "ninja", "tree-sitter", "curl"]
 
 - hosts: "debian:remote"
   become: true
